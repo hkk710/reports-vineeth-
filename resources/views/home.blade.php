@@ -22,6 +22,9 @@
 	<link rel="stylesheet" href="css/animate.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<!-- Font-->
@@ -35,6 +38,17 @@
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
+  @if (count($errors) > 0)
+        @foreach ($errors->all() as $error)
+						<ul>
+							<li class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ $error }}</li>
+						</ul>
+        @endforeach
+  @endif
+	@if (Session::has('success'))
+			<p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('success') }}</p>
+		@endif
+	</script>
 	<section class="hero-section">
 		<div class="container">
 			<div class="row">
@@ -47,19 +61,20 @@
 				<div class="col-md-7">
           <div class="page-content">
 		          <div class="form-v6-content">
-			              <form class="form-detail" action="#" method="post">
+			              <form class="form-detail" action="{{ route('patient_register') }}" method="post">
+											@csrf
 				                 <h2>Register Form</h2>
 				                 <div class="form-row">
-					                 <input type="text" name="doc_name" id="doc_name" class="input-text" placeholder="Doctor's Name" required>
+					                 <input type="text" name="doctor_name" id="doc_name" class="input-text" placeholder="Doctor's Name" required>
 				                  </div>
                 				<div class="form-row">
-                					<input type="text" name="reg_no" id="reg_no" class="input-text" placeholder="MCI Reg NO" required>
+                					<input type="text" name="mci_reg_no" id="reg_no" class="input-text" placeholder="MCI Reg NO" required>
                 				</div>
                 				<div class="form-row">
                 					<input type="text" name="address" id="address" class="input-text" placeholder="Address" required>
                 				</div>
                 				<div class="form-row">
-                					<input type="text" name="mobile" id="mobile" class="input-text" placeholder="mobile no" required>
+                					<input type="text" name="mobile_no" id="mobile" class="input-text" placeholder="mobile no" required>
                 				</div>
                         <div class="form-row">
                           <input type="text" name="hospital_no" id="hospital_no" class="input-text" placeholder="hospital/clinic no" required>
@@ -68,7 +83,7 @@
                           <input type="text" name="facilities" id="facilities" class="input-text" placeholder="Facilities in hospital" required>
                         </div>
                 				<div class="form-row-last">
-                					<input type="submit" name="register" class="register" value="Register">
+													<button type="submit" name="patient_register" class="site-btn sb-gradients">Register</button>
                 				</div>
                 			</form>
                 		</div>
