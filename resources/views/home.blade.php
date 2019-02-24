@@ -47,15 +47,21 @@
   @endif
 	@if (Session::has('success'))
 			<p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('success') }}</p>
-		@endif
+	@endif
 	</script>
 	<section class="hero-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5 hero-text">
-					<h2>Patient <span>Records</span> <br>Management System</h2>
 					<form class="hero-subscribe-from">
-            <button class="site-btn sb-gradients">Admin Login</button>
+						<button class="site-btn sb-gradients">Messages from Admin</button>
+					</form>
+					<form class="hero-subscribe-from">
+						<button class="site-btn sb-gradients">Chat with admin</button>
+					</form>
+					<form class="hero-subscribe-from" action="{{ route('doctors') }}" method="post">
+						@csrf
+						<button class="site-btn sb-gradients">Doctors List</button>
 					</form>
 				</div>
 				<div class="col-md-7">
@@ -83,7 +89,7 @@
                           <input type="text" name="facilities" id="facilities" class="input-text" placeholder="Facilities in hospital" required>
                         </div>
                 				<div class="form-row-last">
-													<button type="submit" name="patient_register" class="site-btn sb-gradients">Register</button>
+													<button type="submit" class="site-btn sb-gradients">Register</button>
                 				</div>
                 			</form>
                 		</div>

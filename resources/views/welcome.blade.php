@@ -36,7 +36,7 @@
 			<a class="site-btn" href="{{ url('/home') }}">Home</a>
       @else
       <!-- <a class="site-btn" href="{{ route('register') }}">Register</a> -->
-      <a class="site-btn" href="{{ route('login') }}">Marketing Executive Login</a></li>
+      <a class="site-btn" href="{{ route('login') }}">Login</a></li>
       @endauth
       @endif
 		</div>
@@ -47,11 +47,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 hero-text">
-					<h2>Patient <span>Records</span> <br>Management System</h2>
-					<form class="hero-subscribe-from">
-						<!-- <input type="text" placeholder="Enter your email"> -->
-            <button class="site-btn sb-gradients">Admin Login</button>
-					</form>
+					<h2>Doctor's <span>Record</span> <br>Management System</h2>
 				</div>
 				<div class="col-md-6">
 					<img src="img/laptop2.png" class="laptop-image" alt="">

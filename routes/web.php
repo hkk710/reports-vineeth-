@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/patient_register', 'PatientController@create')->name('patient_register');
+Route::post('/doctors', 'HomeController@patientview')->name('doctors');
