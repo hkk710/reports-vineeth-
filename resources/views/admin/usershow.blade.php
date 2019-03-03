@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Patient Reports</title>
+	<title>Doctors Reports</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="Cryptocurrency Landing Page Template">
 	<meta name="keywords" content="cryptocurrency, unica, creative, html">
@@ -61,34 +61,32 @@
 		<div class="container">
 			<div class="row">
         <div class="col-md-12">
-          <h1 style="text-align:center;color:#000;">Doctors</h1>
+          <h1 style="text-align:center;color:#000;">Users</h1>
           <table class="table" id="table">
             <thead>
               <tr>
                 <th class="text-center">#</th>
-                <th class="text-center">Doctor Name</th>
-                <th class="text-center">MCI Reg no:</th>
-                <th class="text-center">Address</th>
-                <th class="text-center">Mobile no:</th>
-                <th class="text-center">Hospital/Clinic no:</th>
-                <th class="text-center">Facilities in Hospital</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Admin</th>
             </tr>
           </thead>
           <tbody style="background-color:#fff;">
-            @foreach ($patients as $patient)
+            @foreach ($users as $user)
               <tr>
-                <td>{{$patient->patient_id}}</td>
-                <td>{{$patient->doctor_name}}</td>
-                <td>{{$patient->mci_reg_no}}</td>
-                <td>{{$patient->address}}</td>
-                <td>{{$patient->mobile_no}}</td>
-                <td>{{$patient->hospital_no}}</td>
-                <td>{{$patient->facilities}}</td>
+                <td>{{$user->id}}</td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->email}}</td>
+                @if($user->admin == 1)
+                <td>{{"Admin"}}</td>
+                @else
+                <td>{{"Manager"}}</td>
+                @endif
               </tr>
            @endforeach
         </tbody>
       </table>
-      {{ $patients->links() }}
+      {{ $users->links() }}
       <script>
   $(document).ready(function() {
     $('#table').DataTable();

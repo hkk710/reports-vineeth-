@@ -30,6 +30,6 @@ class HomeController extends Controller
     public function patientview()
     {
         $patients = Patient::orderBy('patient_id', 'desc')->paginate(10);
-        return view('patient.index')->withPatients($patients);
+        return view('doctor.index')->withPatients($patients);
     }
 }

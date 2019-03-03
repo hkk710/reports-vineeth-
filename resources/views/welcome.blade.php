@@ -33,8 +33,12 @@
 			<a href="" class="user"><i class="fa fa-user"></i></a>
       @if (Route::has('login'))
       @auth
-			<a class="site-btn" href="{{ url('/home') }}">Home</a>
-      @else
+			@if(Auth::user()->admin == 1)
+					<a class="site-btn" href="{{ url('/admin') }}">Admin</a>
+			@else
+					<a class="site-btn" href="{{ url('/home') }}">Home</a>
+			@endif
+			@else
       <!-- <a class="site-btn" href="{{ route('register') }}">Register</a> -->
       <a class="site-btn" href="{{ route('login') }}">Login</a></li>
       @endauth
